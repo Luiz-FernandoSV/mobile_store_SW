@@ -4,21 +4,22 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Header({ onMenuPress }) {
-  const navigation = useNavigation(); // Hook para acesso à navegação
+export default function Header() {
+  const navigation = useNavigation(); // Hook para navegação
 
-  // Função para navegação para a tela inicial
-  const handleHomePress = () => {
-    navigation.navigate('Home'); // Substitua 'Home' pelo nome da sua tela inicial
+  // Função para abrir a tela de adicionar produto
+  const handleAddProduct = () => {
+    // A navegação vai para a tela 'ProductForm' (ou 'ProductPost' se preferir)
+    navigation.navigate('ProductForm');
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onMenuPress}>
-        <FontAwesome name="bars" size={24} color="#fff" />
+      <TouchableOpacity onPress={handleAddProduct}>
+        <FontAwesome name="plus" size={24} color="#fff" /> {/* Ícone de "+" */}
       </TouchableOpacity>
       <Text style={styles.title}>MOBILE STORE</Text>
-      <TouchableOpacity onPress={handleHomePress}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <FontAwesome name="home" size={24} color="#fff" />
       </TouchableOpacity>
     </View>
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Centralizando verticalmente
     padding: 15,
     borderBottomWidth: 1,
-    backgroundColor: '#335AFF', // Fundo azul para o cabeçalho
+    backgroundColor: '#7cde5b', // Fundo verde para o cabeçalho
   },
   title: {
     color: '#fff',

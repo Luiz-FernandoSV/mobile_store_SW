@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-nati
 import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import Card from '../components/Card';
-import Header from '../components/Header';
 
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
@@ -34,13 +33,6 @@ export default function Home() {
           />
         ))}
       </ScrollView>
-
-      <TouchableOpacity
-        style={styles.btnAdicionar}
-        onPress={() => navigation.navigate('ProductForm')}
-      >
-        <Text style={styles.txt_add}>ADICIONAR PRODUTO</Text>
-      </TouchableOpacity>
     </View>
   );
 }
